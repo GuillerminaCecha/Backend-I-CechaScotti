@@ -37,7 +37,7 @@ productsRouter.post('/', async (req, res)=>{
         const response = await productManager.addProduct({ title, desciption, price, thumbnail, code, stock, status, category })
     } catch (error) {
         console.log(error);
-        res.send('Error al intentar agregar producto')
+        res.send('Error al intentar eliminar el producto con ID ${pid}')
     }
 })
 
