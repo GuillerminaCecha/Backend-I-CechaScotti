@@ -33,11 +33,12 @@ productsRouter.get('/:pid', async (req, res)=>{
 
 productsRouter.post('/', async (req, res)=>{
     try {
-        const { title, desciption, price, thumbnail, code, stock, status = true, category } = req.body;
+        const { title, desciption, price, thumbnail, code, stock, status = false, category } = req.body;
         const response = await productManager.addProduct({ title, desciption, price, thumbnail, code, stock, status, category })
+        res.json(products)
     } catch (error) {
         console.log(error);
-        res.send('Error al intentar eliminar el producto con ID ${pid}')
+        res.send('Error al intentar agregar el producto')
     }
 })
 
@@ -45,7 +46,7 @@ productsRouter.put('/:pid', async (req, res)=> {
     const {pid} = req.params;
 
     try {
-        const { title, desciption, price, thumbnail, code, stock, status = true, category } = req.body;
+        const { title, desciption, price, thumbnail, code, stock, status = false, category } = req.body;
         const response = await productManager.updateProduct(pid, { title, desciption, price, thumbnail, code, stock, status, category })
         res.json(response)
     } catch (error) {

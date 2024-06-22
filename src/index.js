@@ -13,7 +13,7 @@ export const cartManager = new CartManager();
 
 app.use(express.json());
 app.use('/api/products', productsRouter); // Ruta: http://localhost:8080/api/products
-app.use('/api/carts', cartsRouter);
+app.use('/api/carts', cartsRouter)
 
 app.listen(PORT, (req, res) => {
     console.log(`Servidor desde el puerto ${PORT}`);
