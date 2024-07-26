@@ -1,4 +1,3 @@
-
 import ProductManager from "../controllers/productManager.js";
 import { Server } from "socket.io";
 import url from "url";

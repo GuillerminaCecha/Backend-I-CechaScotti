@@ -1,6 +1,6 @@
 import express from "express";
 import handlebars from "./config/handlebars.config.js";
-import productsRouter from "./routes/api.products.router.js";
+import productsRouter from "./r outes/api.products.router.js";
 import cartsRouter from "./routes/api.carts.router.js";
 import paths from "./utils/paths.js";
 import productsViewRouter from "./routes/app.products.router.js";

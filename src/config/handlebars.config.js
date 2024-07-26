@@ -27,6 +27,4 @@ const config = (server) => {
     server.set("view engine", "handlebars");
 };
 
-export default {
-    config,
-};
+export default { config };

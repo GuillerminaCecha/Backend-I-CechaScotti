@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "mongoose": "^8.5.1",
+    "mongoose-paginate": "^5.0.3",
     "mongoose-paginate-v2": "^1.8.2",
     "uuid": "^10.0.0"
   },

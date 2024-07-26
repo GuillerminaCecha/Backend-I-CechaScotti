@@ -12,7 +12,7 @@ router.get("/:cid", async (req, res) => {
         res.status(200).json({ status: true, payload: cart });
     } catch (error) {
         res.status(500).json({ status: false, message: error.message });
-    }
+    }   
 });
 
 router.get("/", async (req, res) => {

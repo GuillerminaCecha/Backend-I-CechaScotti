@@ -12,14 +12,10 @@ const connectDB = () => {
     connect(URI, options)
         .then(() => console.log("Conectado a MongoDB"))
         .catch((err) => console.error("Error al conectar con MongoDB", err));
-
 };
 
 const isValidID = (id) => {
-
     return Types.ObjectId.isValid(id);
 };
 
-export default {
-    connectDB, isValidID,
-};
+export default { connectDB, isValidID };
