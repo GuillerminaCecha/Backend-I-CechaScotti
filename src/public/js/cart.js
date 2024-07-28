@@ -1,5 +1,4 @@
 const checkoutBtn = document.querySelector(".checkout-btn");
-
 checkoutBtn.addEventListener("click", () => {
     localStorage.clear();
 

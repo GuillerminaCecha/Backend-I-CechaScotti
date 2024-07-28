@@ -2,7 +2,6 @@ import { Router } from "express";
 import ProductManager from "../controllers/productManager.js";
 
 const productMgr = new ProductManager();
-
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -11,7 +10,7 @@ router.get("/", async (req, res) => {
         const data = await productMgr.getAllProductsWithFilters(req.query);
 
         res.status(200).json({
-            status: "succes",
+            status: "success",
             payload: data.docs,
             totalPages: data.totalPages,
             prevPage: data.prevPage,

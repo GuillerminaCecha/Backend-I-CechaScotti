@@ -6,9 +6,7 @@ const cartMgr = new CartManager();
 
 router.get("/cart/:cid", async (req, res)=>{
     const { cid } = req.params;
-
     const cart = await cartMgr.getCartById(cid);
-
     res.render("cart", { title: "Carrito", cart: cart.products });
 });
 

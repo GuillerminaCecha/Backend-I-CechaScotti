@@ -1,22 +1,21 @@
 import { Router } from "express";
-
 import ProductManager from "../controllers/productManager.js";
 
 const router = Router();
 const productsMgr = new ProductManager();
 
+// Obtener detalles del producto por ID
 router.get("/products", async (req, res)=>{
-
-    const products = await productsMgr.getAllProductsWithFilters(req.query);
-    const sort = req.query.sort;
-    const limit = req.query.limit;
-
-    res.render("products", { title: "Productos", products, sort, limit });
-});
-
-router.get("/realtimeproducts", async (req, res)=>{
-
-    res.render("realTimeProducts", { title: "Productos con Websocket" });
+try {
+    const { pid } = req.params;
+    const product = await productsMgr.getProductById(pid);
+    if (!product) {
+        return res.status(404).json({ status: "error", message: "Producto no encontrado" });
+    }
+    res.status(200).json({ status: "success", payload: product });
+} catch (error) {
+    res.status(500).json({ status: "error", message: error.message });
+}
 });
 
 export default router;

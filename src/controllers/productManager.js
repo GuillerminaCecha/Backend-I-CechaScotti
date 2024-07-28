@@ -1,5 +1,4 @@
 import ProductModel from "../models/api.products.model.js";
-
 import serverIO from "../config/socket.config.js";
 import mongoDB from "../config/mongoose.config.js";
 
@@ -33,7 +32,7 @@ class ProductManager {
             const productsFound = await this.#productModel.paginate(filters, paginationOptions);
             return productsFound;
         } catch (error) {
-            throw new Error(error.message);
+            throw new Error(`Error en la obtención de productos con filtros: ${error.message}`);
         }
     };
 
@@ -58,42 +57,38 @@ class ProductManager {
             }
             return productFound;
         } catch (error) {
-            throw new Error(error.message);
+            throw new Error(`Error al obtener el producto por ID: ${error.message}`);
         }
     };
 
     insertOneProduct = async (data) => {
-
         try {
-            const newProduct = new ProductModel(data);
-
+            const newProduct = new this.#productModel(data);
             await newProduct.save();
             serverIO.updateProductsList(await this.getAllProducts());
             return newProduct;
         } catch (error) {
-            throw new Error(error.message);
+            throw new Error(`Error al insertar el producto: ${error.message}`);
         }
     };
 
     updateOneProduct = async (id, data) => {
-
         try {
             if (!mongoDB.isValidID(id)) {
                 throw new Error("El ID no es valido");
             }
 
-            const productFound = await this.#productModel.findByIdAndUpdate(id, data);
+            const productFound = await this.#productModel.findByIdAndUpdate(id, data,{ new: true } );
 
             if (!productFound) {
                 throw new Error("No se encuentra el producto");
             }
 
-            productFound.save();
             serverIO.updateProductsList(await this.getAllProducts());
 
             return productFound;
         } catch (error) {
-            throw new Error(error.message);
+            throw new Error(`Error al actualizar el producto: ${error.message}`);
         }
     };
 
@@ -114,7 +109,7 @@ class ProductManager {
             serverIO.updateProductsList(await this.getAllProducts());
             return productFound;
         } catch (error) {
-            throw new Error(error.message);
+            throw new Error(`Error al eliminar el producto: ${error.message}`);
         }
     };
 }
