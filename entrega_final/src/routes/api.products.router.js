@@ -2,6 +2,7 @@ import { Router } from "express";
 import ProductManager from "../controllers/productManager.js";
 
 const productMgr = new ProductManager();
+
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -10,7 +11,7 @@ router.get("/", async (req, res) => {
         const data = await productMgr.getAllProductsWithFilters(req.query);
 
         res.status(200).json({
-            status: "success",
+            status: "succes",
             payload: data.docs,
             totalPages: data.totalPages,
             prevPage: data.prevPage,
@@ -26,6 +27,7 @@ router.get("/", async (req, res) => {
     } catch (error) {
         res.status(500).json({ status: "error", message: error.message });
     }
+
 });
 
 router.get("/:pid", async (req, res) => {
@@ -36,6 +38,7 @@ router.get("/:pid", async (req, res) => {
     } catch (error) {
         res.status(500).json({ status: false, message: error.message });
     }
+
 });
 
 router.post("/", async (req, res) => {
@@ -46,6 +49,7 @@ router.post("/", async (req, res) => {
     } catch (error) {
         res.status(500).json({ status: false, message: error.message });
     }
+
 });
 
 router.put("/:pid", async (req, res) => {
@@ -56,6 +60,7 @@ router.put("/:pid", async (req, res) => {
     } catch (error) {
         res.status(500).json({ status: false, message: error.message });
     }
+
 });
 
 router.delete("/:pid", async (req, res) => {
@@ -68,6 +73,7 @@ router.delete("/:pid", async (req, res) => {
     } catch (error) {
         res.status(500).json({ status: false, message: error.message });
     }
+
 });
 
 export default router;

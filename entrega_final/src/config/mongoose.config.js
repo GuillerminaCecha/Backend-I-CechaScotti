@@ -4,8 +4,8 @@ const connectDB = () => {
     const URI = "mongodb+srv://guillerminacecha:TadyB9DXsltXEQBc@clusterguillermina.eahoq3w.mongodb.net/";
 
     const options = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
+        //useNewUrlParser: true,
+        //useUnifiedTopology: true,
         dbName: "ecommerce",
     };
 
@@ -18,4 +18,6 @@ const isValidID = (id) => {
     return Types.ObjectId.isValid(id);
 };
 
-export default { connectDB, isValidID };
+export default { 
+    connectDB, isValidID,
+};
