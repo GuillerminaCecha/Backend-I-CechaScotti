@@ -1,3 +1,2 @@
-Entrega Final Guillermina Cecha Scotti
-
+Guillermina Cecha Scotti
 Curso Backend II - CoderHouse

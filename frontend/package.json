@@ -1,0 +1,25 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "eslint.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "start": "vite"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.2",
+    "vite": "^5.4.8"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "firebase": "^10.14.0",
+    "react-bootstrap": "^2.10.5",
+    "react-hook-form": "^7.53.0",
+    "react-router-dom": "^6.26.2",
+    "react-toastify": "^10.0.5"
+  }
+}
